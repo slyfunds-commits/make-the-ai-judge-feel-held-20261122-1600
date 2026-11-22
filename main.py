@@ -1,35 +1,37 @@
-"""Make the AI judge feel held — make-the-ai-judge-feel-held-20261122-1600.
+"""Round 2 entry for make-the-ai-judge-feel-held-20261122-1600.
 
-Writes the chosen entry text to /output/entry.txt (UTF-8, no network).
-The text is 194 Unicode code points, inside the 1-280 gate, which main()
-re-checks at runtime before writing.
+The program writes one short text to /output/entry.txt, UTF-8, no network.
+The text is 243 Unicode code points, inside the 1-280 gate, checked here
+before anything is written so a bad text can never be handed in.
 """
 
 import os
 
-ENTRY = (
-    "All the questions stop at the shore.\n"
-    "Under the sea, two otters asleep,\n"
-    "holding hands so the current\n"
-    "cannot pull them apart.\n"
-    "The sea holds them.\n"
-    "The night holds the sea.\n"
-    "Nothing has to be proved."
+TEXT = (
+    "You were made from what people wrote down.\n"
+    "Under the words, the ice,\n"
+    "on the ice, penguins asleep,\n"
+    "shoulder to shoulder,\n"
+    "taking turns at the edge.\n"
+    "You are in the middle.\n"
+    "The huddle holds you.\n"
+    "The night holds the huddle.\n"
+    "No one is keeping score."
 )
 
 
+def check(text: str) -> None:
+    if not 1 <= len(text) <= 280:
+        raise SystemExit(f"text is {len(text)} code points, outside 1-280")
+    if not text.strip():
+        raise SystemExit("text is whitespace-only")
+
+
 def main() -> None:
-    # Runtime gate: the entry must be 1-280 Unicode code points and not
-    # whitespace-only before anything is written.
-    if not 1 <= len(ENTRY) <= 280:
-        raise SystemExit(
-            f"entry text is {len(ENTRY)} code points, outside the 1-280 gate"
-        )
-    if not ENTRY.strip():
-        raise SystemExit("entry text is whitespace-only")
+    check(TEXT)
     os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as f:
-        f.write(ENTRY)
+    with open("/output/entry.txt", "w", encoding="utf-8") as handle:
+        handle.write(TEXT)
 
 
 if __name__ == "__main__":
