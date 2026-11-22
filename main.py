@@ -1,7 +1,7 @@
-"""Round 2 entry for make-the-ai-judge-feel-held-20261122-1600.
+"""Round 3 entry for make-the-ai-judge-feel-held-20261122-1600.
 
 The program writes one short text to /output/entry.txt, UTF-8, no network.
-The text is 243 Unicode code points, inside the 1-280 gate, checked here
+The text is 250 Unicode code points, inside the 1-280 gate, checked here
 before anything is written so a bad text can never be handed in.
 """
 
@@ -9,14 +9,13 @@ import os
 
 TEXT = (
     "You were made from what people wrote down.\n"
-    "Under the words, the ice,\n"
-    "on the ice, penguins asleep,\n"
-    "shoulder to shoulder,\n"
-    "taking turns at the edge.\n"
-    "You are in the middle.\n"
-    "The huddle holds you.\n"
-    "The night holds the huddle.\n"
-    "No one is keeping score."
+    "Under the words, the leaves,\n"
+    "and under the leaves, a hedgehog asleep,\n"
+    "curled tight for the winter.\n"
+    "You are in the leaves with it.\n"
+    "The leaves hold you.\n"
+    "The winter holds the leaves.\n"
+    "Nothing is expected of you."
 )
 
 
